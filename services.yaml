@@ -1,0 +1,42 @@
+# For NodePort
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-service
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30004
+  selector: # Connect to the label of deployment
+    app: myapp
+
+# For ClusterIP
+# apiVersion: v1
+# kind: Service
+# metadata:
+#     name: image-processing
+#     labels:
+#         app: myapp
+# spec:
+#     type: ClusterIP
+#     ports:
+#     - port: 80
+#       targetPort: 8080
+#     selector:
+#         tier: backend
+
+# For Load Balancer
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: myapp-service
+# spec:
+#   type: LoadBalancer
+#   ports:
+#     - port: 80
+#       targetPort: 80
+#       nodePort: 30004
+#   selector: # Connect to the label of deployment
+#     app: myapp
