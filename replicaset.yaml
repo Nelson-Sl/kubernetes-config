@@ -4,6 +4,8 @@ metadata:
   name: myapp-replicaset
   labels:
     app: myapp
+  annotations:
+    buildVersion: "0.01"
 spec:
   selector:
     matchLabels:
